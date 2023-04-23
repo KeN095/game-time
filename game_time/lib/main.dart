@@ -15,9 +15,16 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               title: const Text("Game time"),
             ),
-            body: const TextField(
-              decoration: InputDecoration(
-                  labelText: "Search game", prefixIcon: Icon(Icons.search)),
-            )));
+            body: Center(
+                child: SizedBox(
+                    width: 300,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: "Search game",
+                          prefixIcon: const Icon(Icons.search)),
+                    )))));
   }
 }
