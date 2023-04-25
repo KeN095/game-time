@@ -1,6 +1,6 @@
-# game_time
+# Game time
 
-A new Flutter project.
+An app that displays the completion time for video games using HowLongToBeat public API. 
 
 ## Getting Started
 
