@@ -1,4 +1,4 @@
-# Game time
+# Game time (name pending)
 
 An app that displays the completion time for video games using HowLongToBeat public API. 
 
