@@ -1,27 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:game_time/game.dart';
+import 'package:game_time/game_data_controller.dart';
 
 class SearchResults extends StatelessWidget {
   final String searchText;
-  const SearchResults({super.key, required this.searchText});
-
-  Future<List<Map<String, dynamic>>> fetchGameData() async {
-    final response = await http.get(
-        Uri.parse('https://ken095.alwaysdata.net/find-game/${searchText}'));
-
-    List<dynamic> jsonData = json.decode(response.body)['HLTB'];
-    List<Map<String, dynamic>> games =
-        List<Map<String, dynamic>>.from(jsonData);
-    // print(games);
-    // for (Map<String, dynamic> game in games) {
-    //   print('Game Name: ${game["game_name"]}' + "\n");
-    //   print('Game Developer: ${game["game_developer"]}' + "\n");
-
-    //   print('Game Release: ${game["game_release"]}' + "\n");
-
-    return games;
-  }
+  final GameDataController gameDataController = GameDataController();
+  SearchResults({super.key, required this.searchText});
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +13,16 @@ class SearchResults extends StatelessWidget {
       appBar: AppBar(
         title: Text('Results for $searchText'),
       ),
-      body: FutureBuilder<List<Map<String, dynamic>>>(
-        future: fetchGameData(),
+      body: FutureBuilder<List<Game>>(
+        future: gameDataController.fetchGameData(searchText),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Text('Unable to retrieve results: ${snapshot.error}');
+            return Center(
+                child: Text('Unable to retrieve results: ${snapshot.error}'));
           } else {
-            List<Map<String, dynamic>> games = snapshot.data!;
+            List<Game> games = snapshot.data!;
             return ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: games.length,
@@ -52,7 +37,7 @@ class SearchResults extends StatelessWidget {
                   child: Row(
                     children: [
                       Image.network(
-                        games[index]['game_image_url'],
+                        games[index].imageURL,
                         height: 110,
                         width: 75,
                       ),
@@ -64,15 +49,16 @@ class SearchResults extends StatelessWidget {
                           children: [
                             const SizedBox(height: 5.0),
                             Text(
-                              games[index]['game_name'],
+                              games[index].name,
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 16.0),
                             ),
                             const SizedBox(height: 25.0),
-                            Text('Main Story: ${games[index]['game_main']}'),
-                            Text('Main + Extra: ${games[index]['game_extra']}'),
+                            Text('Main Story: ${games[index].mainTime} hours'),
                             Text(
-                                'Completionist: ${games[index]['game_completionist']}'),
+                                'Main + Extra: ${games[index].extraTime} hours'),
+                            Text(
+                                'Completionist: ${games[index].completionistTime} hours'),
                           ],
                         ),
                       ),
