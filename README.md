@@ -1,6 +1,8 @@
-# Game time (name pending)
+# Game Time
 
-An app that displays the completion time for video games using HowLongToBeat public API. 
+## Overview
+
+A Flutter app that displays the completion times for different video games. Utilizes the public [HowLongToBeat Python API](https://pypi.org/project/howlongtobeatpy/#usage). 
 
 ## Getting Started
 
