@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_time/popular_games.dart';
 import 'search_results.dart';
 
 void main() {
@@ -37,11 +38,21 @@ class Homescreen extends StatelessWidget {
                       labelText: "Search game",
                       prefixIcon: const Icon(Icons.search)),
                   onSubmitted: (value) => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SearchResults(
-                                searchText: _searchController.text)))
+                    if (value == "popular")
+                      {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PopularGames()))
+                      }
+                    else
+                      {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SearchResults(
+                                    searchText: _searchController.text)))
+                      }
                   },
                 ))));
   }
