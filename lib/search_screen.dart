@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_time/game.dart';
 import 'package:game_time/game_data_controller.dart';
+import 'package:game_time/game_details.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -91,8 +92,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                   ],
                                 ),
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,
-                                  size: 15),
+                              IconButton(
+                                  onPressed: () => {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    GameDetails(
+                                                        game: games[index])))
+                                      },
+                                  icon: const Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      size: 15))
                             ],
                           ),
                         );
