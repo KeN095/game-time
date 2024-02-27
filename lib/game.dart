@@ -47,15 +47,22 @@ class Game {
     }
 
     if ((results['game_extra'] as num) > 0.0) {
-      results['game_extra'] = (results['game_extra'] as num);
+      results['game_extra'] =
+          ((results['game_extra'] * 10).floor() / 10) as num;
     }
 
     if ((results['game_completionist'] as num) > 0.0) {
-      results['game_completionist'] = (results['game_completionist'] as num);
+      results['game_completionist'] =
+          ((results['game_completionist'] * 10).floor() / 10) as num;
     }
 
     if ((results['game_main'] as num) > 0.0) {
-      results['game_main'] = (results['game_main'] as num);
+      results['game_main'] = ((results['game_main'] * 10).floor() / 10) as num;
+    }
+
+    if ((results['game_all_styles'] as num) > 0.0) {
+      results['game_all_styles'] =
+          ((results['game_all_styles'] * 10).floor() / 10) as num;
     }
 
     return Game(
