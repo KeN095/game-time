@@ -54,11 +54,12 @@ class PopularGames extends StatelessWidget {
                                   fontWeight: FontWeight.bold, fontSize: 16.0),
                             ),
                             const SizedBox(height: 25.0),
-                            Text('Main Story: ${games[index].mainTime} hours'),
                             Text(
-                                'Main + Extra: ${games[index].extraTime} hours'),
+                                'Main Story: ${games[index].mainTime % 1 == 0 ? games[index].mainTime.toInt() : games[index].mainTime} hours'),
                             Text(
-                                'Completionist: ${games[index].completionistTime} hours'),
+                                'Main + Extra: ${games[index].extraTime % 1 == 0 ? games[index].extraTime.toInt() : games[index].extraTime} hours'),
+                            Text(
+                                'Completionist: ${games[index].completionistTime % 1 == 0 ? games[index].completionistTime.toInt() : games[index].completionistTime} hours'),
                           ],
                         ),
                       ),

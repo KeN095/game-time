@@ -59,7 +59,7 @@ class GameDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${game.mainTime} hours",
+                            "${game.mainTime % 1 == 0 ? game.mainTime.toInt() : game.mainTime} hours",
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
@@ -94,7 +94,7 @@ class GameDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${game.extraTime} hours",
+                            "${game.extraTime % 1 == 0 ? game.extraTime.toInt() : game.extraTime} hours",
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
@@ -128,7 +128,7 @@ class GameDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${game.completionistTime} hours",
+                            "${game.completionistTime % 1 == 0 ? game.completionistTime.toInt() : game.completionistTime} hours",
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
@@ -163,7 +163,7 @@ class GameDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${game.allStyles} hours",
+                            "${game.allStyles % 1 == 0 ? game.allStyles.toInt() : game.allStyles} hours",
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
