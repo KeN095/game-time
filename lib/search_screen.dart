@@ -61,6 +61,12 @@ class _SearchScreenState extends State<SearchScreen> {
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey, width: 1.0),
                             borderRadius: BorderRadius.circular(2.0),
+                            image: DecorationImage(
+                                image: NetworkImage(games[index].imageURL),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.white.withOpacity(0.9),
+                                    BlendMode.srcOver)),
                           ),
                           child: Row(
                             children: [
@@ -83,12 +89,75 @@ class _SearchScreenState extends State<SearchScreen> {
                                           fontSize: 16.0),
                                     ),
                                     const SizedBox(height: 25.0),
-                                    Text(
-                                        'Main Story: ${games[index].mainTime % 1 == 0 ? games[index].mainTime.toInt() : games[index].mainTime} hours'),
-                                    Text(
-                                        'Main + Extra: ${games[index].extraTime % 1 == 0 ? games[index].extraTime.toInt() : games[index].extraTime} hours'),
-                                    Text(
-                                        'Completionist: ${games[index].completionistTime % 1 == 0 ? games[index].completionistTime.toInt() : games[index].completionistTime} hours'),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const Text('Main Story: '),
+                                        Container(
+                                            padding: const EdgeInsets.all(3.0),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                color:
+                                                    games[index].mainTime > 0.0
+                                                        ? Colors.blue
+                                                        : Colors.grey),
+                                            child: Text(
+                                              '${games[index].mainTime % 1 == 0 ? games[index].mainTime.toInt() : games[index].mainTime} hours',
+                                              style: const TextStyle(
+                                                  color: Colors.white),
+                                            ))
+                                      ],
+                                    ),
+                                    Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 5.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            const Text('Main + Extra: '),
+                                            Container(
+                                                padding:
+                                                    const EdgeInsets.all(3.0),
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    color:
+                                                        games[index].mainTime >
+                                                                0.0
+                                                            ? Colors.blue
+                                                            : Colors.grey),
+                                                child: Text(
+                                                  '${games[index].extraTime % 1 == 0 ? games[index].extraTime.toInt() : games[index].extraTime} hours',
+                                                  style: const TextStyle(
+                                                      color: Colors.white),
+                                                ))
+                                          ],
+                                        )),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const Text('Completionist: '),
+                                        Container(
+                                            padding: const EdgeInsets.all(3.0),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                color:
+                                                    games[index].mainTime > 0.0
+                                                        ? Colors.blue
+                                                        : Colors.grey),
+                                            child: Text(
+                                              '${games[index].completionistTime % 1 == 0 ? games[index].completionistTime.toInt() : games[index].completionistTime} hours',
+                                              style: const TextStyle(
+                                                  color: Colors.white),
+                                            ))
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
