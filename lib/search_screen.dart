@@ -61,6 +61,12 @@ class _SearchScreenState extends State<SearchScreen> {
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey, width: 1.0),
                             borderRadius: BorderRadius.circular(2.0),
+                            image: DecorationImage(
+                                image: NetworkImage(games[index].imageURL),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.white.withOpacity(0.9),
+                                    BlendMode.srcOver)),
                           ),
                           child: Row(
                             children: [
