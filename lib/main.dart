@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_time/popular_games.dart';
+import 'package:game_time/settings.dart';
 import 'package:game_time/search_screen.dart';
 
 void main() {
@@ -34,9 +35,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const SearchScreen(),
     PopularGames(),
-    const Center(
-        child: Text("Settings page is coming soon!",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w300)))
+    const Settings()
   ];
 
   @override
