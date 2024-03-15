@@ -62,7 +62,10 @@ class PopularGames extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                const Text('Main Story: '),
+                                const Text(
+                                  'Main Story: ',
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
                                 Container(
                                     padding: const EdgeInsets.all(3.0),
                                     decoration: BoxDecoration(
@@ -83,7 +86,11 @@ class PopularGames extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    const Text('Main + Extra: '),
+                                    const Text(
+                                      'Main + Extra: ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                     Container(
                                         padding: const EdgeInsets.all(3.0),
                                         decoration: BoxDecoration(
@@ -102,7 +109,10 @@ class PopularGames extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                const Text('Completionist: '),
+                                const Text(
+                                  'Completionist: ',
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
                                 Container(
                                     padding: const EdgeInsets.all(3.0),
                                     decoration: BoxDecoration(
