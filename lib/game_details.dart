@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_time/game.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class GameDetails extends StatelessWidget {
   final Game game;
@@ -258,8 +259,15 @@ class GameDetails extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 9.0),
                   child: Center(
                       child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Visit HLTB for more info")))),
+                          onPressed: () async {
+                            final Uri uri = Uri.parse(game.webLink);
+
+                            if (!await launchUrl(uri,
+                                mode: LaunchMode.externalApplication)) {
+                              throw "Unable to launch HowLongToBeat's website";
+                            }
+                          },
+                          child: const Text("Visit HowLongToBeat")))),
             ],
           ),
         ));
