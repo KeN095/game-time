@@ -46,6 +46,10 @@ class Game {
       results['alias'] = '';
     }
 
+    if (results['game_developer'] == null) {
+      results['game_developer'] = '';
+    }
+
     if ((results['game_extra'] as num) > 0.0) {
       results['game_extra'] =
           ((results['game_extra'] * 10).floor() / 10) as num;
